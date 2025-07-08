@@ -11,7 +11,7 @@ public abstract class Book {
     protected int year;
     protected double price;
 
-    public Book(String isbn, String title, String author, int year, double price) {
+    public Book(String isbn, String title, int year, double price) {
         this.isbn = isbn;
         this.title = title;
         this.year = year;
@@ -40,8 +40,8 @@ public abstract class Book {
 class PaperBook extends Book {
     private int stock;
 
-    public PaperBook(String isbn, String title, String author, int year, double price, int stock) {
-        super(isbn, title, author, year, price);
+    public PaperBook(String isbn, String title, int year, double price, int stock) {
+        super(isbn, title, year, price);
         this.stock = stock;
     }
 
@@ -67,8 +67,8 @@ class PaperBook extends Book {
 class EBook extends Book {
     private String fileType;
 
-    public EBook(String isbn, String title, String author, int year, double price, String fileType) {
-        super(isbn, title, author, year, price);
+    public EBook(String isbn, String title, int year, double price, String fileType) {
+        super(isbn, title, year, price);
         this.fileType = fileType;
     }
 
@@ -88,8 +88,8 @@ class EBook extends Book {
     }
 }
 class Demobook extends Book {
-    public Demobook(String isbn, String title, String author, int year) {
-        super(isbn, title, author, year, 0);
+    public Demobook(String isbn, String title, int year) {
+        super(isbn, title, year, 0);
     }
 
     @Override
