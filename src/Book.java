@@ -61,7 +61,7 @@ class PaperBook extends Book {
     @Override
     public String processPurchase(String address) {
         ShippingService.ship(this, address);
-        return "Paper book '" + title + "' shipped to " + address;
+        return "Paper book:Name '" + title + "' shipped to " + address;
     }
 }
 class EBook extends Book {
@@ -84,7 +84,7 @@ class EBook extends Book {
     @Override
     public String processPurchase(String email) {
         MailService.send(this, email);
-        return "Quantum book store: EBook '" + title + "' sent to " + email;
+        return "EBook:Name '" + title + "' sent to " + email;
     }
 }
 class Demobook extends Book {
@@ -99,7 +99,7 @@ class Demobook extends Book {
 
     @Override
     public String processPurchase(String customerInfo) {
-        return "Quantum book store: Showcase book '" + title + "' is not for sale";
+        return "Demo book :Name'" + title + "' is not for sale";
     }
 }
 
@@ -124,7 +124,7 @@ class Bookstore {
 
     public void addBook(Book book) {
         inventory.put(book.getIsbn(), book);
-        System.out.println("Quantum book store: Added book '" + book.getTitle() + "' to inventory");
+        System.out.println("Added book '" + book.getTitle() + "' to inventory");
     }
 
     public List<Book> removeOutdatedBooks(int yearsThreshold) {
@@ -135,7 +135,7 @@ class Bookstore {
 
         outdatedBooks.forEach(book -> inventory.remove(book.getIsbn()));
 
-        System.out.println("Quantum book store: Removed " + outdatedBooks.size() + " outdated books");
+        System.out.println("Removed " + outdatedBooks.size() + " outdated books");
         return outdatedBooks;
     }
 
@@ -143,17 +143,17 @@ class Bookstore {
         Book book = inventory.get(isbn);
 
         if (book == null) {
-            throw new Exception("Quantum book store: Book with ISBN " + isbn + " not found");
+            throw new Exception("Book with ISBN " + isbn + " not found");
         }
 
         if (!book.isForSale()) {
-            throw new Exception("Quantum book store: Book '" + book.getTitle() + "' is not for sale");
+            throw new Exception("Book '" + book.getTitle() + "' is not for sale");
         }
 
         if (book instanceof PaperBook) {
             PaperBook paperBook = (PaperBook) book;
             if (paperBook.getStock() < quantity) {
-                throw new Exception("Quantum book store: Not enough stock for book '" + book.getTitle() + "'");
+                throw new Exception("Not enough stock for book '" + book.getTitle() + "'");
             }
             paperBook.setStock(paperBook.getStock() - quantity);
         }
