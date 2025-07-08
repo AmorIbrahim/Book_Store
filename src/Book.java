@@ -61,7 +61,7 @@ class PaperBook extends Book {
     @Override
     public String processPurchase(String address) {
         ShippingService.ship(this, address);
-        return "Quantum book store: Paper book '" + title + "' shipped to " + address;
+        return "Paper book '" + title + "' shipped to " + address;
     }
 }
 class EBook extends Book {
@@ -115,10 +115,10 @@ class MailService {
     }
 }
 
-class QuantumBookstore {
+class Bookstore {
     private Map<String, Book> inventory;
 
-    public QuantumBookstore() {
+    public Bookstore() {
         this.inventory = new HashMap<>();
     }
 
