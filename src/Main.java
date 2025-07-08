@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
         QuantumBookstore store = new QuantumBookstore();
 
-        store.addBook(new PaperBook("123", "Java Programming", "Amr", 2025, 50, 10));
-        store.addBook(new EBook("456", "Python Basics", "Mohamed", 2020, 80, "PDF"));
-        store.addBook(new Demobook("789", "C++", "Ibrahim", 2004));
+        store.addBook(new PaperBook("123", "Java Programming", 2025, 50, 10));
+        store.addBook(new EBook("456", "Python Basics", 2020, 80, "PDF"));
+        store.addBook(new Demobook("789", "C++", 2004));
 
 
         List<Book> outdated = store.removeOutdatedBooks(10); // Should remove books older than 3 years
