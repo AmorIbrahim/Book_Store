@@ -1,6 +1,6 @@
 import java.util.*;
 
-// Main bookstore class
+
 public class Main {
     public static void main(String[] args) {
         QuantumBookstore store = new QuantumBookstore();
@@ -10,7 +10,7 @@ public class Main {
         store.addBook(new Demobook("789", "C++", 2004));
 
 
-        List<Book> outdated = store.removeOutdatedBooks(10); // Should remove books older than 3 years
+        List<Book> outdated = store.removeOutdatedBooks(10); 
         try {
 
             double total = store.buyBook("456", 1, "amorebrahim58@gmail.com");
